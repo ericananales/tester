@@ -1,0 +1,11 @@
+# My Flask Web Application
+
+This is a simple web application built with Flask.
+
+## Setup
+- Clone the repository: `git clone <repository_url>`
+- Install dependencies: `pip install -r requirements.txt`
+- Start the app: `python src/app.py`
+
+## Features
+- Simple API with a route returning "Hello, World!"
