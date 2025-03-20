@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the repository from GitHub
+                git 'https://github.com/ericananales/tester.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Replace with your build command (e.g., npm install, mvn clean package, etc.)
+                sh 'mvn clean package'  // Example for Maven build
+                // For a Node.js project, you might use: sh 'npm install'
+                // For Python, you might use: sh 'python setup.py install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Replace with your test command (e.g., mvn test, pytest, etc.)
+                sh 'mvn test'  // Example for Maven test
+                // For Node.js: sh 'npm test'
+                // For Python: sh 'pytest'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Replace with your deployment script/commands
+                echo 'Deploying application...'
+                // You can add your deployment scripts here, such as SCP, AWS CLI, etc.
+                // Example: sh 'scp -r * user@server:/path/to/deploy'
+            }
+        }
+    }
+}
